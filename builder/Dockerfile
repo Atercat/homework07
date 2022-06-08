@@ -1,2 +1,2 @@
 FROM maven
-CMD ["/bin/bash"]
+RUN git clone https://example.com/test.git
