@@ -19,7 +19,7 @@ services:
       touch /war/.done"
 
   tomcat:
-    image: atercat/myboxfuse
+    image: atercat/myboxfuse:tomcat
     build: .
     volumes:
       - shared:/git
