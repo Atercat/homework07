@@ -3,7 +3,7 @@ services:
     image: alpine/git
     volumes:
       - shared:/git
-    command: git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello.git /git
+    command: clone https://github.com/boxfuse/boxfuse-sample-java-war-hello.git /git
   maven:
     image: maven:3.6-alpine
     depends_on:
