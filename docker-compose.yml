@@ -18,13 +18,5 @@ services:
       cp /git/target/*.war /war/ &&
       touch /war/.done"
 
-  tomcat:
-    image: atercat/myboxfuse:tomcat
-    build: .
-    volumes:
-      - shared:/git
-    ports:
-      - "80:8080"
-
 volumes:
   shared:
