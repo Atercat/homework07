@@ -1,0 +1,4 @@
+services:
+  builder:
+    image: maven
+    command: /bin/sh
