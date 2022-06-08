@@ -21,9 +21,6 @@ services:
   tomcat:
     image: atercat/myboxfuse
     build: .
-    depends_on:
-      maven:
-        condition: service_completed_successfully
     volumes:
       - shared:/git
     ports:
