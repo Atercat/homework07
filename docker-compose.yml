@@ -14,9 +14,7 @@ services:
     volumes:
       - shared:/git
       - ./war:/war
-    command: /bin/bash -c "mvn -f /git/pom.xml package &&
-      cp /git/target/*.war /war/ &&
-      touch /war/.done"
+    command: /bin/bash -c "mvn -f /git/pom.xml package && cp /git/target/*.war /war/ && touch /war/.done"
 
 volumes:
   shared:
