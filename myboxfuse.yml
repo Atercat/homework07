@@ -1,6 +1,0 @@
-services:
-  tomcat:
-      image: atercat/myboxfuse:tomcat
-      build: .
-      ports:
-        - "80:8080"
