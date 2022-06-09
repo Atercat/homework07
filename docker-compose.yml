@@ -2,15 +2,15 @@ services:
 
   maven:
     image: maven:3.6-alpine
-    depends_on:
-      git:
-        condition: service_completed_successfully
     volumes:
       - war:/war
     command: /bin/bash -c "apt update && apt install git && git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello.git git && mvn -f /git/pom.xml package && cp /git/target/*.war /war/"
 
   tomcat:
     image: tomcat:9.0.63-jre8-openjdk-slim-buster
+    depends_on:
+      maven:
+        condition: service_completed_successfully
     volumes:
       - war:/usr/local/tomcat/webapps
     ports:
