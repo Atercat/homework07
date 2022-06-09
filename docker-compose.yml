@@ -4,7 +4,7 @@ services:
     image: maven:3.6-alpine
     volumes:
       - war:/war
-    command: /bin/bash -c "apk update && apk install git && git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello.git git && mvn -f /git/pom.xml package && cp /git/target/*.war /war/"
+    command: /bin/bash -c "apk update && apk add git && git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello.git git && mvn -f /git/pom.xml package && cp /git/target/*.war /war/"
 
   tomcat:
     image: tomcat:9.0.63-jre8-openjdk-slim-buster
