@@ -1,0 +1,20 @@
+services:
+
+  git:
+    image: alpine/git
+    volumes:
+      - shared:/git
+    command: clone https://github.com/boxfuse/boxfuse-sample-java-war-hello.git /git
+
+  maven:
+    image: maven:3.6-alpine
+    depends_on:
+      git:
+        condition: service_completed_successfully
+    volumes:
+      - shared:/git
+      - ./war:/war
+    command: /bin/bash -c "mvn -f /git/pom.xml package && cp /git/target/*.war /war/ && touch /war/.done"
+
+volumes:
+  shared:
